@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Weather App</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div class="card">
+
+        <div class="search">
+          <input type="text" class="search-bar" placeholder="Search for a city...">
+          <button>Search</button>
+        </div>
+
+        <div class="weather loading">
+            <h2 class="city">City: Port Harcourt</h2>
+            <h1 class="temp">27°C</h1>
+
+            <p class="weather-details">More Weather Details</p>
+            <hr>
+                <div class="weather-description">
+                    <img src="./images/sun-foggy-line.svg" alt="" class="icon" />
+                    <div class="description">Very Sunny</div>
+                </div>
+            <div class="weather-description">
+                <img src="./images/temp-cold-fill.svg" alt="" class="icon" />
+                <div class="humidity">Humidity: </div>
+            </div>
+            <div class="weather-description">
+                <img src="./images/windy-line.svg" alt="" class="icon" />
+                <div class="wind">Wind speed: </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script/app.js"></script>
+</body>
+</html>
