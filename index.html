@@ -1,41 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Weather App</title>
-    <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body>
-    <div class="card">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        transition: background 0.3s, color 0.3s;
+      }
+      .weather-bg {
+        background-image: url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen weather-bg text-white flex items-center justify-center p-4">
+    <div class="bg-black/60 backdrop-blur-lg rounded-2xl shadow-2xl w-full max-w-xl p-6 space-y-6">
 
-        <div class="search">
-          <input type="text" class="search-bar" placeholder="Search for a city...">
-          <button>Search</button>
+      <div class="flex gap-2">
+        <input
+          type="text"
+          class="flex-1 px-4 py-2 rounded-lg bg-white/10 placeholder-white text-white focus:outline-none"
+          placeholder="Search for a city..."
+        />
+        <button class="bg-white/20 px-4 py-2 rounded-lg hover:bg-white/30 transition">Search</button>
+      </div>
+
+      <div class="weather flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        <div class="flex flex-col gap-2">
+            <h4 class="text-xl font-semibold city">Location: Port Harcourt</h4>
+            <div class="local-time text-white/80">Local Time: </div>
+            <h2 class="text-4xl font-bold temp">27°C</h2>
+
+            <div class="flex items-center gap-3 weather-description">
+                <img id="weatherIcon" alt="Weather Icon" class="w-10 h-10" />
+                <div class="description text-lg capitalize">Very Sunny</div>
+            </div>
         </div>
 
-        <div class="weather loading">
-            <h2 class="city">City: Port Harcourt</h2>
-            <h1 class="temp">27°C</h1>
-
-            <p class="weather-details">More Weather Details</p>
-            <hr>
-                <div class="weather-description">
-                    <img src="./images/sun-foggy-line.svg" alt="" class="icon" />
-                    <div class="description">Very Sunny</div>
-                </div>
-            <div class="weather-description">
-                <img src="./images/temp-cold-fill.svg" alt="" class="icon" />
+        <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3">
                 <div class="humidity">Humidity: </div>
             </div>
-            <div class="weather-description">
-                <img src="./images/windy-line.svg" alt="" class="icon" />
+
+            <div class="flex items-center gap-3">
                 <div class="wind">Wind speed: </div>
             </div>
+
+            <div class="flex items-center gap-3 sunrise">Sunrise: </div>
+            <div class="flex items-center gap-3 sunset">Sunset: </div>
         </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg mt-4 mb-2 font-semibold">5-Day Forecast</h3>
+        <div id="forecast" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
+      </div>
     </div>
 
     <script src="./script/app.js"></script>
-</body>
+  </body>
 </html>
